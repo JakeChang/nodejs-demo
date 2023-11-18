@@ -12,7 +12,7 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-app.get('/', function (req, res) {
+app.get('/test_get', function (req, res) {
     let data = {
         status: 0,
         data: {
