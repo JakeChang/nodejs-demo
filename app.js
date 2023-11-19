@@ -26,4 +26,18 @@ app.get('/test_get', function (req, res) {
     res.send(JSON.stringify(data));
 })
 
+app.post('/test_post', function (req, res) {
+    const name = req.body.name;
+    let data = {
+        status: 0,
+        data: {
+            name: name,
+
+        }
+    };
+
+    res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify(data));
+})
+
 app.listen(PORT, () => console.log(`Server is running at http://localhost:${PORT}`))
