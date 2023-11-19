@@ -51,8 +51,8 @@ app.get('/test_data', function (req, res) {
         status: 0,
         data: {
             image: 'https://' + host + '/jk.png',
-            audio: 'https://' + host + '/jk.wav',
-            video: 'https://' + host + '/jk.mov',
+            audio: 'https://' + host + '/jk.mp3',
+            video: 'https://' + host + '/jk.mp4',
         }
     };
 
