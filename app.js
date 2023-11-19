@@ -12,6 +12,8 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
+app.use(express.json());
+
 app.get('/test_get', function (req, res) {
     let data = {
         status: 0,
@@ -27,8 +29,6 @@ app.get('/test_get', function (req, res) {
 })
 
 app.post('/test_post', function (req, res) {
-    res.setHeader('Content-Type', 'application/json');
-
     const name = req.body.name;
     let data = {
         status: 0,
@@ -38,6 +38,7 @@ app.post('/test_post', function (req, res) {
         }
     };
 
+    res.setHeader('Content-Type', 'application/json');
     res.send(JSON.stringify(data));
 })
 
