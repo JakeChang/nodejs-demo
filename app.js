@@ -1,5 +1,6 @@
 const express = require('express');
-var cors = require('cors');
+const cors = require('cors');
+
 const app = express();
 const PORT = 3000;
 
@@ -12,6 +13,7 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
+app.use(express.static('public'));
 app.use(express.json());
 
 app.get('/test_get', function (req, res) {
@@ -34,6 +36,22 @@ app.post('/test_post', function (req, res) {
         status: 0,
         data: {
             name: name,
+
+        }
+    };
+
+    res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify(data));
+})
+
+app.get('/test_data', function (req, res) {
+    const host = req.headers.host;
+
+    let data = {
+        status: 0,
+        data: {
+            image: 'https://' + host + '/jk.png',
+
 
         }
     };
